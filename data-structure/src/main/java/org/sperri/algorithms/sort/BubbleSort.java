@@ -1,9 +1,10 @@
 package org.sperri.algorithms.sort;
 
+import org.sperri.algorithms.common.Printable;
+
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.Iterator;
+
+import static org.sperri.algorithms.util.ArrayUtils.swap;
 
 /**
  * 冒泡排序
@@ -11,66 +12,39 @@ import java.util.Iterator;
  * @author Jie Zhao
  * @date 2021/8/25 22:37
  */
-public class BubbleSort<E> extends AbstractSort<E> {
-
+public class BubbleSort<E> extends AbstractSort<E> implements Printable {
 
     private E[] array;
-
 
     public BubbleSort(E[] array) {
         this.array = array;
     }
 
-
-    public BubbleSort(Collection<? extends E> collection) {
-        array = collection.toArray(array);
-    }
-
-
-    /**
-     * 冒泡排序
-     */
     public void sort() {
         if (array == null || array.length < 2) {
             return;
         }
 
-        // 表示是否已经是有序的了
-        boolean isSorted = true; // 优化：如果已经是有序的，就不需要在继续进行冒泡了，直接返回
         for (int end = array.length - 1; end > 0; end--) {
+            boolean isSorted = true;
             for (int i = 0; i < end; i++) {
-                if (compare(array[i], array[i+1]) > 0) {
+                if (compare(array[i], array[i + 1]) > 0) {
                     swap(array, i, i + 1);
                     isSorted = false;
                 }
             }
-            if (!isSorted) {
-
+            if (isSorted) {
+                break; // 表示此次 数组中的所有元素都是有序的了，不需要再往下遍历了
             }
         }
     }
 
 
-    /**
-     * 交换数组中任意两个元素的位置
-     *
-     * @param arr
-     * @param i
-     * @param j
-     */
-    public void swap(E[] arr, int i, int j) {
-
-        E temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
-
-
+    @Override
     public void print() {
         System.out.println(
                 "BubbleSort{" +
                         "array=" + Arrays.toString(array) +
-                        '}'
-        );
+                        "} ");
     }
 }

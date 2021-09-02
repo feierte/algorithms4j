@@ -1,6 +1,10 @@
 package org.sperri.algorithms.sort;
 
-public interface Sort {
+/**
+ * @author Jie Zhao
+ * @date 2021/8/26 19:44
+ */
+public interface Sort<E> {
 
     void sort();
 }

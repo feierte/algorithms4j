@@ -10,9 +10,9 @@ public class BubbleSortTest {
 
     @Test
     public void test() {
-        Integer[] array = new Integer[]{2, 8, 3, 6, 3, 5, 9};
-        BubbleSort bubbleSort = new BubbleSort(array);
-        bubbleSort.sort();
-        bubbleSort.print();
+        Integer[] array = new Integer[]{ 5, 3, 6, 7,2, 4, 9, 5};
+        BubbleSort<Integer> sort = new BubbleSort<>(array);
+        sort.sort();
+        sort.print();
     }
 }

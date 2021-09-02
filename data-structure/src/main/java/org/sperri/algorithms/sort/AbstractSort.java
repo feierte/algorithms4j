@@ -2,31 +2,23 @@ package org.sperri.algorithms.sort;
 
 import java.util.Comparator;
 
-public abstract class AbstractSort<E> implements Sort, Printable {
+/**
+ * @author Jie Zhao
+ * @date 2021/8/26 19:44
+ */
+public abstract class AbstractSort<E> implements Sort<E> {
 
     protected Comparator<? super E> comparator;
 
-    protected AbstractSort() {
-    }
+    public AbstractSort() {}
 
     protected AbstractSort(Comparator<? super E> comparator) {
         this.comparator = comparator;
     }
 
-
-    /**
-     * 比较两个数的大小
-     *
-     * @param o1
-     * @param o2
-     * @return
-     */
     protected int compare(E o1, E o2) {
-        return comparator == null ? ((Comparable<E>) o1).compareTo(o2) :
-                comparator.compare((E) o1, (E) o2);
+        return this.comparator == null ? ((Comparable<E>) o1).compareTo(o2) :
+                this.comparator.compare(o1, o2);
     }
 
-    public Comparator<? super E> comparator() {
-        return comparator;
-    }
 }
