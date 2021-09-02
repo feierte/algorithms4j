@@ -1,5 +1,7 @@
 package org.sperri.algorithms.example.pat.basic;
 
+import java.util.Scanner;
+
 /**
  * 卡拉兹(Callatz)猜想：
  * 对任何一个正整数 n，如果它是偶数，那么把它砍掉一半；如果它是奇数，那么把 (3n+1) 砍掉一半。这样一直反复砍下去，最后一定在某一步得到 n=1。
@@ -19,7 +21,7 @@ public class Practice_1001 {
 
     public int callatz(int n) {
         if (n <= 0 || n > 1000) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("argument should between in (0, 1000] ");
         }
 
         int count = 0;
@@ -37,6 +39,10 @@ public class Practice_1001 {
 
     public static void main(String[] args) {
         Practice_1001 practice_1001 = new Practice_1001();
-        System.out.println(practice_1001.callatz(3));
+        Scanner scanner = new Scanner(System.in);
+        while (scanner.hasNextInt()) {
+            int n = scanner.nextInt();
+            System.out.println(practice_1001.callatz(n));
+        }
     }
 }
