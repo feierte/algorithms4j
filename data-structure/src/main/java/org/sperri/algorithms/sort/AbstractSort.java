@@ -6,7 +6,7 @@ import java.util.Comparator;
  * @author Jie Zhao
  * @date 2021/8/26 19:44
  */
-public abstract class AbstractSort<E> implements Sort<E> {
+public abstract class AbstractSort<E extends Comparable<E>> implements Sort<E> {
 
     protected Comparator<? super E> comparator;
 
@@ -21,4 +21,8 @@ public abstract class AbstractSort<E> implements Sort<E> {
                 this.comparator.compare(o1, o2);
     }
 
+    @Override
+    public boolean isSorted() {
+        return false;
+    }
 }

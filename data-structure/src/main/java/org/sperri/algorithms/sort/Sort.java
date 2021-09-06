@@ -7,4 +7,10 @@ package org.sperri.algorithms.sort;
 public interface Sort<E> {
 
     void sort();
+
+    /**
+     * 是否是有序的
+     * @return
+     */
+    boolean isSorted();
 }

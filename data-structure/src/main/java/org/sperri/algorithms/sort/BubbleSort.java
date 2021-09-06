@@ -12,7 +12,7 @@ import static org.sperri.algorithms.util.ArrayUtils.swap;
  * @author Jie Zhao
  * @date 2021/8/25 22:37
  */
-public class BubbleSort<E> extends AbstractSort<E> implements Printable {
+public class BubbleSort<E extends Comparable<E>> extends AbstractSort<E> implements Printable {
 
     private E[] array;
 
