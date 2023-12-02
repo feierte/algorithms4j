@@ -11,7 +11,7 @@ import java.util.Comparator;
  * @date 2020/7/12 18:10
  */
 public class BinarySearchTree<K, V> extends AbstractBinaryTree<K, V>
-        implements BinaryTree<K, V>, SortedTree<K, V> {
+        implements SortedTree<K, V> {
 
     @Override
     public boolean add(BiNode<K, V> node) {

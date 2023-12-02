@@ -13,14 +13,12 @@ public class Stack<E> {
     private int size;
 
     public Stack() {
-
+        this(8);
     }
-
 
     public Stack(int initialCapacity) {
         if (initialCapacity < 0)
-            throw new IllegalArgumentException("Illegal Capacity: "+
-                    initialCapacity);
+            throw new IllegalArgumentException("Illegal Capacity: "+ initialCapacity);
         elements = new Object[initialCapacity];
     }
 
@@ -29,15 +27,21 @@ public class Stack<E> {
         if (size == 0) {
             throw new ArrayIndexOutOfBoundsException();
         }
-
-        return null;
+        E e = (E) elements[size];
+        elements[size--] = null;
+        return e;
     }
 
     public E peek() {
-        return null;
+        if (size == 0) {
+            throw new ArrayIndexOutOfBoundsException();
+        }
+
+        return (E) elements[size];
     }
 
     public void push(E e) {
+
 
     }
 

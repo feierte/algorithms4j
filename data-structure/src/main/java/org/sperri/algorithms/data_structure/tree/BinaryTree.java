@@ -7,7 +7,7 @@ import java.util.Objects;
  * @author zj
  * @date 2020/7/12 11:22
  */
-public interface BinaryTree<K, V>  {
+public class BinaryTree<K, V>  {
 
 
 }
