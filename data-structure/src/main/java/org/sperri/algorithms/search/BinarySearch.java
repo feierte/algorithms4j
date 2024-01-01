@@ -4,7 +4,7 @@ package org.sperri.algorithms.search;
  * @author Jie Zhao
  * @date 2021/9/3 20:12
  */
-public class BinarySearch<T> implements Search<T> {
+public class BinarySearch<T extends Comparable> implements Search<T> {
 
     private T[] array;
 
@@ -12,6 +12,11 @@ public class BinarySearch<T> implements Search<T> {
         this.array = array;
     }
 
+    /**
+     * 基本二分查找实现
+     * @param target 待查找的目标值
+     * @return
+     */
     @Override
     public int search(T target) {
         if (array == null || array.length == 0) {
@@ -19,12 +24,18 @@ public class BinarySearch<T> implements Search<T> {
         }
 
         int left = 0;
-        int right = array.length;
+        int right = array.length - 1;
 
         while (left <= right) {
-
+            int mid = (left + right) >>> 1;
+            if (target.compareTo(array[mid]) < 0) {
+                right = mid - 1;
+            } else if (array[mid].compareTo(target) < 0) {
+                left = mid + 1;
+            } else {
+                return mid;
+            }
         }
-
-        return 0;
+        return -1;
     }
 }
