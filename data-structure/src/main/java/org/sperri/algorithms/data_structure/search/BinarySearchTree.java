@@ -1,7 +1,6 @@
 package org.sperri.algorithms.data_structure.search;
 
 import org.sperri.algorithms.data_structure.tree.AbstractBinaryTree;
-import org.sperri.algorithms.data_structure.tree.BinaryTree;
 import org.sperri.algorithms.data_structure.tree.SortedTree;
 
 import java.util.Comparator;
