@@ -58,6 +58,26 @@ public class SingleLinkedList<E> implements List<E>, Printable {
     }
 
 
+    /**
+     * 按照索引查找链表中的元素
+     * @param index
+     * @return
+     */
+    private Node findNode(int index) {
+        // todo: 待完成
+        return null;
+    }
+
+
+    /**
+     * 查找链表中的最后一个元素
+     * @return
+     */
+    private Node findLast() {
+        // todo: 待完成
+        return null;
+    }
+
     @Override
     public int size() {
         return this.size;
