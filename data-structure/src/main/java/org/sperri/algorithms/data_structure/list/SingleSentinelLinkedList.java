@@ -15,12 +15,12 @@ import java.util.ListIterator;
  * @date 2023/7/31 21:09
  */
 @Slf4j
-public class SingleLinkedHeadList<E> implements List<E>, Printable {
+public class SingleSentinelLinkedList<E> implements List<E>, Printable {
 
     private int size;
     private Node<E> head;
 
-    public SingleLinkedHeadList() {
+    public SingleSentinelLinkedList() {
         this.head = new Node<>();
     }
 
@@ -273,7 +273,7 @@ public class SingleLinkedHeadList<E> implements List<E>, Printable {
     }
 
     public static void main(String[] args) {
-        SingleLinkedHeadList<String> list = new SingleLinkedHeadList<>();
+        SingleSentinelLinkedList<String> list = new SingleSentinelLinkedList<>();
         list.add("hello");
         list.add("world");
         list.add("java");
