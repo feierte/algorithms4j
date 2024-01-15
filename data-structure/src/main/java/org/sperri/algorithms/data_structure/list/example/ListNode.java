@@ -19,4 +19,25 @@ public class ListNode {
         this.val = val;
         this.next = next;
     }
+
+    static ListNode of(int... data) {
+        if (data == null || data.length == 0) {
+            return null;
+        }
+
+        ListNode head = null;
+        for (int i = data.length - 1; i >= 0; i--) {
+            head = new ListNode(data[i], head);
+        }
+        return head;
+    }
+
+    public void print() {
+        ListNode p = this;
+        while (p != null) {
+            System.out.printf("%-4d", p.val);
+            p = p.next;
+        }
+        System.out.println();
+    }
 }
