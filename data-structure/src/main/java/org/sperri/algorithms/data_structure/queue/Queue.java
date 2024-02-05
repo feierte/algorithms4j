@@ -36,4 +36,10 @@ public interface Queue<E> {
      * @return
      */
     boolean isEmpty();
+
+    /**
+     * 队列是否满了
+     * @return
+     */
+    boolean isFull();
 }
