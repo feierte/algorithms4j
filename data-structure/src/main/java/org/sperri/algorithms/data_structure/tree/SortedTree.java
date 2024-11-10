@@ -6,10 +6,10 @@ import java.util.Comparator;
  * @author zj
  * @date 2020/7/12 17:24
  */
-public interface SortedTree<K, V> extends Tree<K, V> {
+public interface SortedTree<E> extends Tree<E> {
 
-    Comparator<? super K> comparator();
+    Comparator<? super E> comparator();
 
 
-    SortedTree<K, V> subTree(K fromKey, K toKey);
+    SortedTree<E> subTree(E fromKey, E toKey);
 }

@@ -9,21 +9,31 @@ import java.util.Comparator;
  * @author zj
  * @date 2020/7/12 18:10
  */
-public class BinarySearchTree<K, V> extends AbstractBinaryTree<K, V>
-        implements SortedTree<K, V> {
+public class BinarySearchTree<E> extends AbstractBinaryTree<E>
+        implements SortedTree<E> {
 
     @Override
-    public boolean add(BiNode<K, V> node) {
-        return false;
-    }
-
-    @Override
-    public Comparator<? super K> comparator() {
+    public Comparator<? super E> comparator() {
         return null;
     }
 
     @Override
-    public SortedTree<K, V> subTree(K fromKey, K toKey) {
+    public SortedTree subTree(Object fromKey, Object toKey) {
         return null;
+    }
+
+    @Override
+    public E root() {
+        return null;
+    }
+
+    @Override
+    public int size() {
+        return 0;
+    }
+
+    @Override
+    public int height() {
+        return 0;
     }
 }
