@@ -25,7 +25,8 @@ public class BinaryTree<T> {
 //        List<Integer> nodes = tree.postOrderTraverse();
 //        System.out.println(nodes);
 
-        tree.circleTraverse();
+//        tree.circleTraverse();
+        tree.postOrderTraverse();
     }
 
     private Node<T> root;
@@ -221,29 +222,30 @@ public class BinaryTree<T> {
         // curr 表示当前节点
         Node<T> curr = this.root;
         List<T> nodes = new ArrayList<>();
+        Node<T> lastVisitedNode = null; // 最近一次从栈中弹出的节点
         // 栈，为了记录回来的路
         LinkedList<Node<T>> stack = new LinkedList<>();
         while (curr != null || !stack.isEmpty()) {
-            if (curr == null) {
-                curr = stack.pop();
+
+            // 深度优先遍历到最左节点
+            while (curr != null) {
+                stack.push(curr);
+                curr = curr.left;
             }
 
-            Node<T> left = curr.left;
-            if (left != null) {
-                stack.push(curr);
-                curr = left;
-                stack.push(curr);
+            // 找到最左节点后，开始遍历右节点
+            curr = stack.pop();
+
+            // 如果右子树为空，或者当前节点是上一个访问节点的右子节点，则访问当前节点
+            if (curr.right == null || curr.right == lastVisitedNode) {
+                // 当前节点存在右节点，所以再次压入栈
+                System.out.println(curr.data);
+                lastVisitedNode = curr;
+                curr = null;
             } else {
-                // 遍历右节点
-                Node<T> right = curr.right;
-                if (right != null) {
-                    stack.push(curr);
-                    curr = right;
-                    stack.push(curr);
-                } else {
-                    // 后续遍历顺序是 左 -> 右 -> 头，所有左右节点都为空才能遍历头节点
-                    nodes.add(curr.data);
-                }
+                // 如果存在右子树，将当前节点重新压栈
+                stack.push(curr);
+                curr = curr.right; // 继续遍历右子树
             }
         }
         return nodes;
