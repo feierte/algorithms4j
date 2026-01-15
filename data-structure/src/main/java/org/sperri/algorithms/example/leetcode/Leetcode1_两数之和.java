@@ -14,6 +14,7 @@ public class Leetcode1_两数之和 {
      * 解法一：穷举法
      * 时间复杂度：O(N^2)
      * 空间复杂度：O(1)
+     *
      * @param nums
      * @param target
      * @return
@@ -37,7 +38,7 @@ public class Leetcode1_两数之和 {
      * 解法二：哈希表
      * 时间复杂度：O(N)
      * 空间复杂度：O(N)
-     *
+     * <p>
      * 思路：解法一 一次循环只能比较两个数，如果一次能够比较 n 个数就好了
      *
      * @param nums
