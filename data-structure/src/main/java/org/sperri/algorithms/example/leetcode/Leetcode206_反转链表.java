@@ -32,6 +32,7 @@ public class Leetcode206_反转链表 {
     /**
      * 思路：将链表中的元素放到栈中，通过栈的特性反转链表，然后在组合成一个新的链表。
      * 没有做出来
+     *
      * @param head
      * @return
      */
@@ -63,6 +64,7 @@ public class Leetcode206_反转链表 {
 
     /**
      * 三指针法
+     *
      * @param head
      * @return
      */
@@ -70,11 +72,11 @@ public class Leetcode206_反转链表 {
         ListNode p = null;
         ListNode next;
         while (head != null) {
-            next = head.next;
-            head.next = p;
+            next = head.next; // 暂存下一个节点
+            head.next = p; // 反转指针
 
-            p = head;
-            head = next;
+            p = head; // p 指针前进
+            head = next; // head 指针前进
         }
         return p;
     }
